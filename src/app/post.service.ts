@@ -33,7 +33,10 @@ export class PostService {
 
   deletePosts() {
     return this.http.delete(
-      'https://ng-complete-guide-c56d3.firebaseio.com/posts.json'
+      'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
+      {
+        observe: 'response'
+      }
     );
   }
 
@@ -50,7 +53,8 @@ export class PostService {
           headers: new HttpHeaders({
             'Custom-Header': 'Hello'
           }),
-          params: queryParams
+          params: queryParams,
+          observe: 'response'
         }
       )
       .pipe(
