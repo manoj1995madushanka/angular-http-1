@@ -38,6 +38,11 @@ export class PostService {
   }
 
   fetchPosts() {
+
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('print', 'pretty');
+    queryParams = queryParams.append('secondParam', 'second');
+
     return this.http
       .get<{ [key: string]: Post }>(
         'https://angular-backend-81e97-default-rtdb.firebaseio.com/posts.json',
@@ -45,7 +50,7 @@ export class PostService {
           headers: new HttpHeaders({
             'Custom-Header': 'Hello'
           }),
-          params: new HttpParams().set('print','pretty')
+          params: queryParams
         }
       )
       .pipe(
