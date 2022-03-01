@@ -12,9 +12,12 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   /**
    * this method is used to add intermediate operations to the htp request before it is sent
-   * */
+   **/
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('request on the way');
+    const modifiedRequest = req.clone({
+      headers: req.headers.append('auth', 'abc123')
+    });
     return next.handle(req);
   }
 }
