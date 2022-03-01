@@ -2,3 +2,5 @@ interceptors added when all request need to add common header or something like 
 
 if we introduce multiple interceptors the order is important of app.module
 because that order follows when execute interceptors
+
+http doc : https://angular.io/guide/http
