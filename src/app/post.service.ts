@@ -54,7 +54,8 @@ export class PostService {
             'Custom-Header': 'Hello'
           }),
           params: queryParams,
-          observe: 'response'
+          observe: 'response',
+          responseType: 'json'
         }
       )
       .pipe(
